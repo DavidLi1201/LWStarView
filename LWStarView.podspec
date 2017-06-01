@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   
 
   s.name         = "LWStarView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "This is a star rating control"
   s.description  = <<-DESC 
                   This is a star rating control support decimal
