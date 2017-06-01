@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "This is a star rating control"
   s.description  = <<-DESC 
-                  support decimal
+                  This is a star rating control support decimal
                    DESC
   s.homepage     = "https://github.com/David408477192/LWStarView"
   s.license      = "MIT "
