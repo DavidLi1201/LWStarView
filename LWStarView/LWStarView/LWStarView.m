@@ -13,6 +13,7 @@ static NSUInteger LWDefaultCount = 5;
 @implementation LWStarView
 {
     UIView *_upView;
+    CGFloat _starWidth;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -41,10 +42,10 @@ static NSUInteger LWDefaultCount = 5;
     UIView *view = [[UIView alloc] initWithFrame:self.bounds];
     view.layer.masksToBounds = YES;
     [view setBackgroundColor:[UIColor whiteColor]];
-    CGFloat starWidth = self.bounds.size.width / self.totalCount;
+    _starWidth = self.bounds.size.width / self.totalCount;
     for (int i = 0; i < self.totalCount; i ++) {
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        imageView.frame = CGRectMake(starWidth * i, 0, starWidth, self.frame.size.height);
+        imageView.frame = CGRectMake(_starWidth * i, 0, _starWidth, self.frame.size.height);
         [view addSubview:imageView];
     }
     return view;
@@ -53,39 +54,117 @@ static NSUInteger LWDefaultCount = 5;
 #pragma mark - touch
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    CGFloat xPoint = [[touches anyObject] locationInView:self].x;
     if (self.enable) {
-        CGFloat xPoint = [[touches anyObject] locationInView:self].x;
-        self.currentPercent = xPoint / self.bounds.size.width;
+        switch (self.markType) {
+            case LWMarkTypeInteger:
+            {
+                if(self.currentIndex == 1) {
+                    self.currentIndex = roundf(xPoint / _starWidth);
+                } else {
+                    self.currentIndex = ceilf(xPoint / _starWidth);
+                }
+            }
+                break;
+            case LWMarkTypeDecimal:
+            {
+                self.currentPercent = xPoint / self.bounds.size.width;
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
     }
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    CGFloat xPoint = [[touches anyObject] locationInView:self].x;
     if (self.enable) {
-        CGFloat xPoint = [[touches anyObject] locationInView:self].x;
-        if (xPoint < 0) {
-            xPoint = 0;
-        } else if (xPoint > self.frame.size.width) {
-            xPoint = self.frame.size.width;
+        switch (self.markType) {
+            case LWMarkTypeDecimal:
+            {
+                if (xPoint < 0) {
+                    xPoint = 0;
+                } else if (xPoint > self.frame.size.width) {
+                    xPoint = self.frame.size.width;
+                }
+                self.currentPercent = xPoint / self.bounds.size.width;
+                [self changeStarValue];
+            }
+                break;
+            case LWMarkTypeInteger:
+            {
+                if(self.currentIndex == 1) {
+                    self.currentIndex = roundf(xPoint / _starWidth);
+                } else {
+                    self.currentIndex = ceilf(xPoint / _starWidth);
+                }
+                [self changeStarValue];
+            }
+                break;
+                
+            default:
+                break;
         }
-        self.currentPercent = xPoint / self.bounds.size.width;
-        [self changeStarValue];
+        
     }
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     if (self.enable) {
-        if (self.markComplete) {
-            self.currentPercent = self.currentPercent > 1. ? 1. : self.currentPercent;
-            self.currentPercent = self.currentPercent < 0. ? 0. : self.currentPercent;
-            self.markComplete(self.currentPercent * self.totalScore);
+        switch (self.markType) {
+            case LWMarkTypeInteger:
+            {
+                if (self.markComplete) {
+                    if (self.currentIndex > self.totalCount) {
+                        self.currentIndex = self.totalCount;
+                    }
+                    self.currentIndex = self.currentIndex > self.totalCount ? self.totalCount : self.currentIndex;
+                    self.markComplete(self.currentIndex * self.totalScore / self.totalCount);
+                }
+                [self changeStarValue];
+                
+            }
+                break;
+            case LWMarkTypeDecimal:
+            {
+                if (self.markComplete) {
+                    self.currentPercent = self.currentPercent > 1. ? 1. : self.currentPercent;
+                    self.currentPercent = self.currentPercent < 0. ? 0. : self.currentPercent;
+                    self.markComplete(self.currentPercent * self.totalScore);
+                }
+                [self changeStarValue];
+            }
+                break;
+                
+            default:
+                break;
         }
-        [self changeStarValue];
+        
     }
 }
 
 - (void)changeStarValue {
-    _upView.frame = CGRectMake(0, 0, self.bounds.size.width * self.currentPercent, self.frame.size.height);
-    [self setNeedsDisplay];
+    switch (self.markType) {
+        case LWMarkTypeDecimal:
+        {
+            _upView.frame = CGRectMake(0, 0, self.bounds.size.width * self.currentPercent, self.frame.size.height);
+            [self setNeedsDisplay];
+        }
+            break;
+        case LWMarkTypeInteger:
+        {
+            _upView.frame = CGRectMake(0, 0, self.currentIndex * _starWidth, self.frame.size.height);
+            [self setNeedsDisplay];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 - (NSUInteger)totalCount {

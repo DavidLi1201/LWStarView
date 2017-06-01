@@ -19,7 +19,6 @@
     [super viewDidLoad];
     self.starView.upImage = [UIImage imageNamed:@"up"];
     self.starView.downImage = [UIImage imageNamed:@"down"];
-    self.starView.currentPercent = 0.5;
     self.starView.markComplete = ^(CGFloat score){
         NSLog(@"%f",score);
     };
