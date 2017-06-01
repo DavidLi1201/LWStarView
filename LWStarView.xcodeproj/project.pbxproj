@@ -86,8 +86,8 @@
 		D0655BE01EE00B3E004122ED /* LWStarView */ = {
 			isa = PBXGroup;
 			children = (
-				D0655BE21EE0130F004122ED /* LWStarView.m */,
 				D0655BE11EE01302004122ED /* LWStarView.h */,
+				D0655BE21EE0130F004122ED /* LWStarView.m */,
 			);
 			path = LWStarView;
 			sourceTree = "<group>";
