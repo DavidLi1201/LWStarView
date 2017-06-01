@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LWStarView.h"
+#import "LWStarView/LWStarView.h"
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet LWStarView *starView;

@@ -13,7 +13,7 @@
 		D0655BD11EDFE307004122ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0655BCF1EDFE307004122ED /* Main.storyboard */; };
 		D0655BD31EDFE307004122ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0655BD21EDFE307004122ED /* Assets.xcassets */; };
 		D0655BD61EDFE307004122ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0655BD41EDFE307004122ED /* LaunchScreen.storyboard */; };
-		D0655BDF1EDFE328004122ED /* LWStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0655BDE1EDFE328004122ED /* LWStarView.m */; };
+		D0655BE31EE0130F004122ED /* LWStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0655BE21EE0130F004122ED /* LWStarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +27,8 @@
 		D0655BD21EDFE307004122ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0655BD51EDFE307004122ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0655BD71EDFE307004122ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0655BDD1EDFE328004122ED /* LWStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWStarView.h; path = LWStarView/LWStarView.h; sourceTree = SOURCE_ROOT; };
-		D0655BDE1EDFE328004122ED /* LWStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWStarView.m; path = LWStarView/LWStarView.m; sourceTree = SOURCE_ROOT; };
+		D0655BE11EE01302004122ED /* LWStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWStarView.h; sourceTree = "<group>"; };
+		D0655BE21EE0130F004122ED /* LWStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWStarView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +86,8 @@
 		D0655BE01EE00B3E004122ED /* LWStarView */ = {
 			isa = PBXGroup;
 			children = (
-				D0655BDD1EDFE328004122ED /* LWStarView.h */,
-				D0655BDE1EDFE328004122ED /* LWStarView.m */,
+				D0655BE21EE0130F004122ED /* LWStarView.m */,
+				D0655BE11EE01302004122ED /* LWStarView.h */,
 			);
 			path = LWStarView;
 			sourceTree = "<group>";
@@ -167,7 +167,7 @@
 				D0655BCE1EDFE307004122ED /* ViewController.m in Sources */,
 				D0655BCB1EDFE307004122ED /* AppDelegate.m in Sources */,
 				D0655BC81EDFE307004122ED /* main.m in Sources */,
-				D0655BDF1EDFE328004122ED /* LWStarView.m in Sources */,
+				D0655BE31EE0130F004122ED /* LWStarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
