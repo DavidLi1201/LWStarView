@@ -27,8 +27,8 @@
 		D0655BD21EDFE307004122ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0655BD51EDFE307004122ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D0655BD71EDFE307004122ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D0655BDD1EDFE328004122ED /* LWStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWStarView.h; sourceTree = "<group>"; };
-		D0655BDE1EDFE328004122ED /* LWStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWStarView.m; sourceTree = "<group>"; };
+		D0655BDD1EDFE328004122ED /* LWStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LWStarView.h; path = LWStarView/LWStarView.h; sourceTree = SOURCE_ROOT; };
+		D0655BDE1EDFE328004122ED /* LWStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LWStarView.m; path = LWStarView/LWStarView.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,7 @@
 		D0655BC51EDFE307004122ED /* LWStarView */ = {
 			isa = PBXGroup;
 			children = (
-				D0655BDD1EDFE328004122ED /* LWStarView.h */,
-				D0655BDE1EDFE328004122ED /* LWStarView.m */,
+				D0655BE01EE00B3E004122ED /* LWStarView */,
 				D0655BC91EDFE307004122ED /* AppDelegate.h */,
 				D0655BCA1EDFE307004122ED /* AppDelegate.m */,
 				D0655BCC1EDFE307004122ED /* ViewController.h */,
@@ -82,6 +81,15 @@
 				D0655BC71EDFE307004122ED /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D0655BE01EE00B3E004122ED /* LWStarView */ = {
+			isa = PBXGroup;
+			children = (
+				D0655BDD1EDFE328004122ED /* LWStarView.h */,
+				D0655BDE1EDFE328004122ED /* LWStarView.m */,
+			);
+			path = LWStarView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,6 +328,7 @@
 				D0655BDC1EDFE307004122ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
